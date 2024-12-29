@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Firebase Todo App</title>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+    <!-- Inline CSS -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #f9f9f9;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .todo {
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .todo.completed {
+        text-decoration: line-through;
+        color: gray;
+      }
+
+      button {
+        cursor: pointer;
+        padding: 8px 12px;
+        border: none;
+        border-radius: 4px;
+      }
+
+      .btn {
+        background-color: #f0f0f0;
+        color: #333;
+      }
+
+      .btn.primary {
+        background-color: #007bff;
+        color: white;
+      }
+
+      .btn.danger {
+        background-color: #ff4d4f;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Auth Section -->
+      <div id="authSection">
+        <h2>Firebase Todo App</h2>
+        <div id="loginForm">
+          <input type="email" id="email" placeholder="Email" required />
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <div class="auth-buttons">
+            <button id="registerBtn" class="btn">Register</button>
+            <button id="loginBtn" class="btn primary">Login</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Todo Section -->
+      <div id="todoSection" class="hidden">
+        <h2>Your Todos</h2>
+        <div id="addTodo" class="add-todo-form">
+          <input type="text" id="todoTitle" placeholder="Todo Title" required />
+          <input type="text" id="todoDesc" placeholder="Description" />
+          <button id="addTodoBtn" class="btn primary">Add Todo</button>
+        </div>
+        <div id="todoList" class="todo-list">
+          <!-- Todos will be inserted here -->
+        </div>
+        <p id="noTodosMessage" class="hidden">No todos available. Add one!</p>
+        <button id="logoutBtn" class="btn danger">Logout</button>
+      </div>
+    </div>
+
+    <script src="../index.js"></script>
+  </body>
+</html>
